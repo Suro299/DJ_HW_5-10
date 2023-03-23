@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contact_style/style.css' %}">
+    <title> Contact Us </title>
+</head>
+
+<body>
+
+    <a href="{% url 'home' %}"><button> Home </button></a>
+
+    <div class = "clc"></div>
+    <div class = "clc clc2"></div>
+
+    <div class = "mn" >
+        <h1> Contact Us </h1>
+        <form method="post">
+            {% csrf_token %} 
+
+            <input type="text" name="user_name"  placeholder = "Name"> <br><br>
+            <input type="email" name="user_email"  placeholder = "e-mail"> <br><br>
+            <input type="text" name="user_phon"  placeholder = "Phon"> <br><br>
+
+            <textarea name="user_review" aria-placeholder="Review" cols="30" rows="10"></textarea> <br><br>
+            
+            <button type="submit"> Add Review </button>
+
+            <p style = "color: {{ res_color }}; text-shadow: {{ res_text_shadow }}"> {{ res }} </p>
+
+
+        </form>
+    </div>
+</body>
+</html>

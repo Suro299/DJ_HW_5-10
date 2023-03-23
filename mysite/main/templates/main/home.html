@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home_style/style.css' %}">
+    <title> Home </title>
+</head>
+
+<body style= "background-color: #1f1f1f;">
+
+    <div class = "clc"></div>
+    <div class = "clc clc2"></div>
+
+    <h1 class="page_title"> Home </h1>
+
+    <div style="display: flex;" class="content_div">
+        <a  href="{% url 'shop' %}">        <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Shop                </button> </a>
+        <a  href="{% url 'add_to_shop' %}"> <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Add Product To Shop </button> </a>
+
+        
+        <a  href="{% url 'ftf' %}">         <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Soon...             </button> </a>
+        <a  href="{% url 'review' %}">      <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Reviews             </button> </a>
+        <a  href="{% url 'contact' %}">     <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Add Review          </button> </a>
+    </div>
+    
+</body>
+</html>

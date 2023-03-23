@@ -1,0 +1,42 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/review_style/style.css' %}">
+    <title> Review </title>
+</head>
+
+
+
+<body> 
+
+    <a href="{% url 'home' %}" style="position: fixed;" ><button> Home </button></a>
+
+    
+    <h1 class="page_title"> Review </h1>
+    
+    
+    <div>
+        {% for i in review_list %}
+        <div class = "rev_div">
+            <div>
+                <h4>User:   {{i.user_name }} </h4> 
+                <h4>E-mail: {{i.user_email }} </h4> 
+                <h4>Phon:   {{i.user_phon }} </h4> 
+            </div>
+
+            <p> {{i.user_review }} </p>
+        </div>
+            {% endfor %}
+        </div>
+    </body>
+
+
+    <div class = "clc"></div>
+    <div class = "clc clc2"></div>
+</html>

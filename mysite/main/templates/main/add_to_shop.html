@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/add_to_shop_style/style.css' %}">
+    <title> Add Product To Shop </title>
+
+</head>
+
+<body>
+
+    <a href="{% url 'home' %}"><button> Home </button></a>
+
+    <div class = "clc"></div>
+    <div class = "clc clc2"></div>
+
+    <div class = "mn" >
+        <h1> Add Product </h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+
+            <input type="text" name="product_name"  placeholder = "Product Name"> <br><br>
+            <input type="number" name="product_price"  placeholder = "Product Price"> <br><br>
+            <textarea class="txarea" name="product_about"  placeholder = "Product about"  cols="30" rows="10"></textarea>
+
+            <div>
+                <input id = "inp" name="product_image" type="file" multiple>
+
+                <label>
+                   <span> 📩 </span>
+                   <span id = "ls"> Select Image </span>
+                </label>
+
+            </div>
+
+            <button type="submit"> Add Product </button>
+
+            <p style = "color: {{ res_color }}; text-shadow: {{ res_text_shadow }}"> {{ res }} </p>
+
+        </form>
+    </div>
+</body>
+</html>

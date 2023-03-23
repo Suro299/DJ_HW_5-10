@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/shop_style/style.css' %}">
+    <title> Shop </title>
+</head>
+
+<body>
+
+    <h1 class="page_title"> Shop </h1>
+
+    <a class="home_btn" href="{% url 'home' %}" style="position: fixed;" ><button> Home </button></a>
+    
+    <div class="search_div">
+        <form action="{% url 'shop' %}">
+            <input type="text" name = "search" placeholder=" Search... ">
+            <button type="submit"> Search </button>
+        </form>
+    </div>
+    
+    <div class="hr">.</div>
+    
+    <div class="content_div">
+        
+        {% for i in products_list%}
+            <a href=""> 
+                <div>
+                    <h1> {{ i.product_name }} </h1> 
+                    <img src=" {{ i.product_image.url }} " alt=""> <br><br> 
+                    
+                    <span>
+                        {% if i.product_about == "" %}
+                            <p style="color:red; text-shadow: 0 0 5px rgba(255, 0, 0, 0.607); margin-top: 3rem; margin-bottom: -4rem"> product information missing </p>
+                        {% else %}
+                            <p> {{ i.product_about }} </p>
+                        {% endif %}
+                    </span>
+
+                    <button>$ {{ i.product_price }} </button>
+                    
+                </div> 
+            </a>
+            {% endfor %}
+    </div>
+    
+    <div class = "clc clc2"></div>
+    <div class = "clc"></div>
+
+</body>
+</html>
