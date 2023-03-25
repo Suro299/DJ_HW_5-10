@@ -1,18 +1,55 @@
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/shop_detail_style/style.css' %}">
+    <title> Review </title>
 </head>
-<body>
-    <h1> {{ one_product.product_name }} </h1> 
-    <img src=" {{ one_product.product_image.url }} " alt=""> <br><br> 
-    
-    <p> {{ one_product.product_about }} </p>
 
-    <h2> $ {{ one_product.product_price }}  </h2>
+
+
+<body> 
+    <div class = "clc"></div>
+    <div class = "clc clc2"></div>
+
+    <a class="go_back_btn" href="{% url 'shop' %}" style="position: fixed;" ><button> Back </button></a>
+
+ 
+    <div class="rev_div">
+        <h1> {{ one_product.product_name }} </h1>
+
+        
+        <span>
+            <div class = "image_div">
+                <img src=" {{ one_product.product_image.url }} " alt="">
+            </div>
+
+            <div class = "detail_div">
+                <h2> $ {{ one_product.product_price }}  </h2> 
+
+                {% if one_product.product_about == "" %}
+                    <p style="color:red; text-shadow: 0 0 5px rgba(255, 0, 0, 0.607);"> product information missing </p>
+                {% else %}
+                    <p> {{ one_product.product_about }} </p>
+                {% endif %}
+
+                <p><a href="" class="a_buy_btn"> <button href = "{% url 'home' %}"> Buy ${{ one_product.product_price }}  </button> </a></p>
+
+            </div>
+        </span>
+
+        
     
-</body>
+        
+    </body>
+
+
+
 </html>
+
+
