@@ -101,12 +101,12 @@ body {
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center; }
-  .content_div a {
+  .content_div .product_div {
     margin-bottom: 7rem;
     margin-left: 0.5rem;
     text-decoration: none;
     cursor: default; }
-    .content_div a div {
+    .content_div .product_div div {
       height: 48rem;
       width: 33rem;
       display: flex;
@@ -121,27 +121,30 @@ body {
       flex-direction: column;
       transition: 0.5s;
       text-align: center; }
-      .content_div a div:hover {
+      .content_div .product_div div:hover {
         transition: 0.5s;
         box-shadow: 0 0 20px rgba(186, 186, 186, 0.374); }
-      .content_div a div img {
+      .content_div .product_div div img {
         max-height: 150px;
         max-width: 28rem;
         box-shadow: 0 0 20px rgba(186, 186, 186, 0.284);
         border-radius: 10px; }
-      .content_div a div h1 {
+      .content_div .product_div div h1 {
         margin-top: 3rem;
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: whitesmoke;
         margin-bottom: 3rem; }
-      .content_div a div span {
+      .content_div .product_div div h2 {
+        font-size: 2.2rem;
+        color: whitesmoke; }
+      .content_div .product_div div span {
         width: 25rem;
         height: 8rem;
         overflow: hidden; }
-        .content_div a div span p {
+        .content_div .product_div div span p {
           color: #c6c6c6;
           font-size: 2rem; }
-      .content_div a div button {
+      .content_div .product_div div .da button {
         margin-top: 3rem;
         margin-bottom: 3rem;
         width: 28rem;
@@ -153,7 +156,7 @@ body {
         backdrop-filter: blur(30px);
         box-shadow: 0 0 5px rgba(223, 223, 223, 0.315);
         color: whitesmoke; }
-        .content_div a div button:hover {
+        .content_div .product_div div .da button:hover {
           background-color: rgba(0, 255, 26, 0.055);
           border: 1px solid rgba(0, 255, 26, 0.607);
           box-shadow: 0 0 5px rgba(0, 255, 26, 0.607);

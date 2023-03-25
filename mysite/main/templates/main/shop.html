@@ -28,7 +28,7 @@
     <div class="content_div">
         
         {% for i in products_list%}
-            <a href=""> 
+            <span class="product_div" href=""> 
                 <div>
                     <h1> {{ i.product_name }} </h1> 
                     <img src=" {{ i.product_image.url }} " alt=""> <br><br> 
@@ -41,10 +41,11 @@
                         {% endif %}
                     </span>
 
-                    <button>$ {{ i.product_price }} </button>
+                    <h2> $ {{ i.product_price }}  </h2>
+                    <a href="{% url 'shop_detail' i.id %}" class="da"> <button href = "{% url 'home' %}"> Show  </button> </a>
                     
                 </div> 
-            </a>
+            </span>
             {% endfor %}
     </div>
     

@@ -77,5 +77,18 @@ def add_to_shop(request):
     else:
         fields = ProductModelForm()
      
-    return render(request, "main/add_to_shop.html", context = {"fields": fields, "res": res, "res_color": res_color, "res_text_shadow": res_text_shadow})
+    return render(request, "main/add_to_shop.html", context = {
+        "fields": fields, 
+        "res": res, 
+        "res_color": res_color, 
+        "res_text_shadow": res_text_shadow
+        })
         
+        
+
+def shop_detail(request, id):
+    one_product = Product.objects.get(pk=id)
+    
+    return render(request, "main/shop_detail.html", context = {
+        "one_product": one_product
+    })

@@ -91,6 +91,7 @@ body {
         padding-left: 2rem;
     }
 
+
     button {
         outline: none;
         color: whitesmoke;
@@ -102,12 +103,13 @@ body {
         width: 12rem;
         height: 5rem;
         font-size: 2rem;
-
-
+    
+    
         &:hover {
             @include green_button_hover;
         }
     }
+
 
     &:hover {
         box-shadow: 0 0 5px rgba(162, 162, 162, 0.607);
@@ -133,7 +135,7 @@ body {
     flex-wrap: wrap;
     align-items: center;
 
-    a {
+    .product_div {
         margin-bottom: 7rem;
         margin-left: 0.5rem;
         text-decoration: none;
@@ -169,10 +171,15 @@ body {
 
             h1 {
                 margin-top: 3rem;
-                font-size: 2.5rem;
+                font-size: 3rem;
                 color: whitesmoke;
                 margin-bottom: 3rem;
 
+            }
+
+            h2 {
+                font-size: 2.2rem;
+                color: whitesmoke;
             }
 
             span {
@@ -186,22 +193,24 @@ body {
 
             }
 
-            button {
-                margin-top: 3rem;
-                margin-bottom: 3rem;
-                width: 28rem;
-                height: 4rem;
-                font-size: 2rem;
-                border-radius: 15px;
-                background-color: transparent;
-                border: 1px solid rgba(255, 255, 255, 0.274);
-                backdrop-filter: blur(30px);
-                box-shadow: 0 0 5px rgba(223, 223, 223, 0.315);
-                color: whitesmoke;
-                &:hover {
-                    @include green_button_hover;
+            .da {
+                button {
+                    margin-top: 3rem;
+                    margin-bottom: 3rem;
+                    width: 28rem;
+                    height: 4rem;
+                    font-size: 2rem;
+                    border-radius: 15px;
+                    background-color: transparent;
+                    border: 1px solid rgba(255, 255, 255, 0.274);
+                    backdrop-filter: blur(30px);
+                    box-shadow: 0 0 5px rgba(223, 223, 223, 0.315);
+                    color: whitesmoke;
+                    &:hover {
+                        @include green_button_hover;
+                    }
+    
                 }
-
             }
         }
     

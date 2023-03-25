@@ -10,4 +10,4 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ("id", "product_name", "product_price")
-    
+    search_fields = ["name", "price"]
