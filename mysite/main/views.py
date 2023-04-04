@@ -2,6 +2,58 @@ from django.shortcuts import render, redirect
 from .forms import ContactModelForm, ProductModelForm
 from .models import Contact, Product
 from django.db.models import Q
+from django.views.generic import ListView
+from .forms import NewUserForm
+from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import AuthenticationForm
+
+# def register_request(request):
+# 	if request.method == "POST":
+# 		form = NewUserForm(request.POST)
+# 		if form.is_valid():
+# 			user = form.save()
+# 			login(request, user)
+# 			messages.success(request, "Registration successful." )
+# 			return redirect("login")
+# 		messages.error(request, "Unsuccessful registration. Invalid information.")
+# 	form = NewUserForm()
+# 	return render(request=request, template_name="register.html", context={"register_form":form})
+
+def login_request(request):
+    res = "\n\n "
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}.")
+                return redirect("home")
+            else:
+                res = "Invalid username or password."
+                messages.error(request,"Invalid username or password.")
+                return render(request=request, template_name="main/login.html", context={"login_form":form, "res": res})
+                
+        else:
+            res = "Invalid username or password."
+            messages.error(request,"Invalid username or password.")
+            return render(request=request, template_name="main/login.html", context={"login_form":form, "res": res})
+          
+    form = AuthenticationForm()
+ 
+    return render(request=request, template_name="main/login.html", context={
+        "login_form":form,
+        "res": res
+        
+    })
+
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect("login")
 
 
 def home(request):
@@ -47,15 +99,17 @@ def contact(request):
 
 
 def shop(request):
-    products_list = Product.objects.all()
+    product = Product.objects.first()
+    product.product_price = 1
+    product.save()
+    
     search_post = request.GET.get("search")
+    products_list = Product.objects.all()
     
     if search_post:
-        products_list = Product.objects.filter(Q(product_name__icontains=search_post) | Q(product_price__icontains=search_post))
+        products_list = products_list.filter(Q(product_name__icontains=search_post) | Q(product_price__icontains=search_post))
         
-    return render(request, "main/shop.html", context = {"products_list": products_list})
-
-
+    return render(request, "main/shop.html", context={"products_list": products_list})
 
 def add_to_shop(request):
     res = "\n\n"
