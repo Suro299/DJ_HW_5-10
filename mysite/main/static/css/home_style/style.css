@@ -10,7 +10,7 @@ html {
 body {
   height: 100vh;
   overflow: hidden;
-  background-color: #a71d1d;
+  background-color: #1f1f1f;
   display: flex;
   align-items: center;
   flex-direction: column; }
@@ -30,8 +30,12 @@ body {
   .content_div a {
     text-decoration: none; }
     .content_div a button {
-      height: 60vh;
-      width: 35rem;
+      width: 29rem;
+      height: 45vh;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
       display: flex;
       text-align: center;
       justify-content: center;
@@ -48,14 +52,36 @@ body {
       .content_div a button:hover {
         cursor: pointer;
         transition: 0.5s;
-        height: 64vh;
-        width: 37rem;
+        width: 32rem;
+        height: 48vh;
         background-color: rgba(245, 245, 245, 0.034);
         box-shadow: 0 0 20px rgba(186, 186, 186, 0.705); }
 
-.user_div a {
-  text-decoration: none;
-  color: red; }
+.user_div {
+  position: absolute;
+  left: 91.5%;
+  top: 2%; }
+  .user_div a {
+    text-decoration: none; }
+    .user_div a button {
+      font-size: 2.5rem;
+      width: 14rem;
+      height: 5rem;
+      text-align: center;
+      border-radius: 5px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.274);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.705);
+      color: whitesmoke;
+      transition: 0.5s;
+      text-align: center; }
+      .user_div a button:hover {
+        background-color: rgba(255, 0, 0, 0.074);
+        border: 1px solid rgba(255, 0, 0, 0.782);
+        box-shadow: 0 0 5px 0 0 5px rgba(255, 0, 0, 0.607);
+        transition: 0.4s;
+        cursor: pointer; }
 
 .clc {
   position: absolute;

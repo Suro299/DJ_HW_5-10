@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/login_style/style.css' %}">
-    <title> Login </title>
+    <link rel="stylesheet" href="{% static 'css/register_style/style.css' %}">
+    <title> Register </title>
 </head>
 <body>
     <div class = "clc"></div>
@@ -15,20 +15,21 @@
 
     <div class = "login_div" >
         <div>
-            <h1> Login </h1>
+            <h1> Register </h1>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %} 
 
                 <input type="text" name="username"  placeholder = "User Name"> <br><br>
-                <input type="password" name="password"  placeholder = "Password"> <br><br>
+                <input type="password" name="password1"  placeholder = "Password"> <br><br>
+                <input type="password" name="password2"  placeholder = "Repeat Password"> <br><br>
 
-                <a href=""> <button type="submit"> Login </button> </a>
+                <a href=""> <button type="submit"> Register </button> </a>
                 <p style = "color: rgba(255, 0, 0, 0.782); text-shadow: 0 0 5px rgba(255, 0, 0, 0.607)"> {{ res }} </p>
 
             </form>
         </div>
         <div>
-            <p> Ete Akkaunt Chuneq Anceq <a href="{% url 'register' %}"> Registracia </a> </p>
+            <p> Ete arden uneq akkaunt <a href="{% url 'login' %}"> Login </a> </p>
         </div>
     </div>
 

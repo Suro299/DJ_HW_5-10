@@ -43,8 +43,21 @@
 
                     <h2> $ {{ i.product_price }}  </h2>
                     <a href="{% url 'shop_detail' i.id %}" class="da"> <button href = "{% url 'home' %}"> Show  </button> </a>
-                    
                 </div> 
+
+                {% if user.is_staff %}
+                <span class = "btns_span"> 
+                    <section>
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <button type="submit" name = "id_edit" value = "{{ i.id }}" > Edit </button>
+                            <button type="submit" name = "id_delete" value = "{{ i.id }}" > Delete </button>
+                        </form>
+                    </section>
+                </span>
+                {% endif %}
+                
             </span>
             {% endfor %}
     </div>

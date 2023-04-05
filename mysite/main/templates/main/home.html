@@ -10,13 +10,13 @@
     <title> Home </title>
 </head>
 
-<body style= "background-color: #1f1f1f;">
+<body>
     <div class = "clc"></div>
     <div class = "clc clc2"></div>
 
     <div class = "user_div" > 
         {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}"> {{ user.username }} </a>
+        <a href="{% url 'logout' %}"><button> {{ user.username }} </button></a>
         {% endif %}
     </div>
     
@@ -25,14 +25,14 @@
     
 
 
-    <div style="display: flex;" class="content_div">
-        <a  href="{% url 'shop' %}">        <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Shop                </button> </a>
-        <a  href="{% url 'add_to_shop' %}"> <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Add Product To Shop </button> </a>
+    <div class="content_div">
+        <a  href="{% url 'shop' %}">        <button> Shop                </button> </a>
+        <a  href="{% url 'add_to_shop' %}"> <button> Add Product To Shop </button> </a>
 
         
-        <a  href="{% url 'ftf' %}">         <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Soon...             </button> </a>
-        <a  href="{% url 'review' %}">      <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Reviews             </button> </a>
-        <a  href="{% url 'contact' %}">     <button style = "width: 29rem; height: 45vh; padding-left: 1rem; padding-right: 1rem; margin-left: 2rem; margin-right: 2rem;"> Add Review          </button> </a>
+        <a  href="{% url 'ftf' %}">         <button> Soon...             </button> </a>
+        <a  href="{% url 'review' %}">      <button> Reviews             </button> </a>
+        <a  href="{% url 'contact' %}">     <button> Add Review          </button> </a>
     </div>
     
 </body>

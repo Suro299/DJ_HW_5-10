@@ -8,17 +8,24 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 
-# def register_request(request):
-# 	if request.method == "POST":
-# 		form = NewUserForm(request.POST)
-# 		if form.is_valid():
-# 			user = form.save()
-# 			login(request, user)
-# 			messages.success(request, "Registration successful." )
-# 			return redirect("login")
-# 		messages.error(request, "Unsuccessful registration. Invalid information.")
-# 	form = NewUserForm()
-# 	return render(request=request, template_name="register.html", context={"register_form":form})
+def register_request(request):
+    res = "\n\n "
+    
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful." )
+            return redirect("home")
+        else:
+            res = "Unsuccessful registration. Invalid information."
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+            return render(request=request, template_name="main/register.html", context={"register_form":form, "res":res})
+            
+    form = NewUserForm()
+    return render(request=request, template_name="main/register.html", context={"register_form":form, "res":res})
+
 
 def login_request(request):
     res = "\n\n "
@@ -99,12 +106,19 @@ def contact(request):
 
 
 def shop(request):
-    product = Product.objects.first()
-    product.product_price = 1
-    product.save()
     
+    if request.method == "POST":
+        id_delete = request.POST.get("id_delete")
+        id_edit = request.POST.get("id_edit")
+        
+        if id_delete != None:
+            prod = Product.objects.get(id = id_delete)
+            prod.delete()
+            
     search_post = request.GET.get("search")
     products_list = Product.objects.all()
+    
+    
     
     if search_post:
         products_list = products_list.filter(Q(product_name__icontains=search_post) | Q(product_price__icontains=search_post))
