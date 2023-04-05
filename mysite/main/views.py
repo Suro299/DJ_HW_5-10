@@ -159,4 +159,37 @@ def shop_detail(request, id):
     
     return render(request, "main/shop_detail.html", context = {
         "one_product": one_product
-    })
+})
+    
+    
+def edit_product(request, id):
+    
+    if request.method == "POST":
+        prod = Product.objects.get(pk=id)
+        
+        name = request.POST.get("name")
+        price = request.POST.get("price")
+        desc = request.POST.get("desc")
+        img = request.FILES.get("img")
+        
+        if name:
+            prod.product_name = name
+            
+        if price:
+            prod.product_price = price
+            
+        if desc:
+            prod.product_about = desc
+            
+        if img:
+            prod.product_image = img
+            
+        prod.save()
+        
+        return redirect("shop")
+        
+    one_product = Product.objects.get(pk=id)
+    
+    return render(request, "main/edit_product.html", context = {
+        "one_product": one_product
+})

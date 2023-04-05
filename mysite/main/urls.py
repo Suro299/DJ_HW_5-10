@@ -11,6 +11,7 @@ urlpatterns = [
     path("review/", views.review, name = "review"),
     path("shop/", views.shop, name = "shop"),
     path("product/<int:id>/", views.shop_detail, name = "shop_detail"),
+    path("edit_product/<int:id>/", views.edit_product, name = "edit_product"),
     path("add_to_shop/", views.add_to_shop, name = "add_to_shop"),
     
     path("ftf/", views.ftf, name = "ftf")

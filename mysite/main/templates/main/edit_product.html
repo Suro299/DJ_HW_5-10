@@ -1,0 +1,55 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/edit_product_style/style.css' %}">
+    <title> Edit Product </title>
+</head>
+
+<body> 
+    <div class = "clc"></div>
+    <div class = "clc clc2"></div>
+
+    <a class="go_back_btn" href="{% url 'shop' %}" style="position: fixed;" ><button> Back </button></a>
+
+ 
+    <div class="product">
+        <span>
+            <div>
+                <img src=" {{ one_product.product_image.url }} " alt="">
+            </div>
+
+            <div>
+                <h1>Name: {{ one_product.product_name }} </h1>
+                <hr> <br><br>
+                <h2>Price: $ {{ one_product.product_price }}  </h2> 
+                <h2>Desc: {{ one_product.product_about }} </h2>
+            </div>
+        </span>
+
+        <span>
+            <form method="post" enctype=multipart/form-data>
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="name"  placeholder = "Name"> <br><br>
+                    <input type="number" name="price" placeholder = "Price"> <br><br>
+                </div>
+
+                <textarea name="desc" placeholder = "Desc" cols="30" rows="10"></textarea> <br><br>
+                <input type="file" name="img"  placeholder = "Img" multiple> <br><br>
+    
+                <button type="submit"> Sumbit </button>
+            </form> 
+        </span>
+        
+    </div>
+</body>
+
+</html>
+
+
